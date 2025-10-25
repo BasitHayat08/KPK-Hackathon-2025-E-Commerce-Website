@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopStake — Contact</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+</head>
+<body class="bg-dark text-light">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🛍️ ShopStake</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link text-light" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-3">
+            <a href="cart.html" class="btn btn-outline-light position-relative">
+              <i class="bi bi-cart3"></i>
+              <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTACT CONTENT -->
+  <main class="container my-5">
+    <h2 class="fw-bold mb-4" data-aos="fade-down">Contact Us</h2>
+
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="card bg-dark text-light p-4 shadow-sm">
+          <h5 class="fw-bold mb-3">Get in Touch</h5>
+          <p>Email: <a href="mailto:contact@shopstake.com" class="text-info">contact@shopstake.com</a></p>
+          <p>Phone: <a href="tel:+923001234567" class="text-info">+92 300 1234567</a></p>
+          <h6 class="fw-bold mt-3">Follow us</h6>
+          <div class="d-flex gap-3 mt-2">
+            <a href="https://instagram.com" target="_blank" class="text-info fs-4"><i class="bi bi-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" class="text-info fs-4"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" class="text-info fs-4"><i class="bi bi-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="text-info fs-4"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="card bg-dark text-light p-4 shadow-sm">
+          <h5 class="fw-bold mb-3">Send us a Message</h5>
+          <form id="contact-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" class="form-control" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-info w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- TOAST POPUP -->
+  <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+  <!-- FOOTER -->
+  <footer class="py-4 bg-black text-center text-secondary border-top border-info">
+    © <span id="year-contact"></span> ShopStake — Hackathon Demo
+  </footer>
+
+  <script>
+    document.getElementById('year-contact').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', ()=> { if(window.AOS) AOS.init({duration:650,once:true}); });
+
+    const contactForm = document.getElementById('contact-form');
+    const toastContainer = document.getElementById('toast-container');
+    
+    contactForm.addEventListener('submit', e=>{
+      e.preventDefault();
+      const name = contactForm.name.value.trim();
+      if(!name) return;
+      const toast = document.createElement('div');
+      toast.className='toast show align-items-center text-bg-dark border-0 mb-2';
+      toast.style.minWidth='280px';
+      toast.innerHTML=`
+        <div class="d-flex">
+          <div class="toast-body p-2">Thank you ${name}! Your message has been sent.</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="this.parentElement.parentElement.remove()"></button>
+        </div>`;
+      toastContainer.appendChild(toast);
+      setTimeout(()=> toast.remove(),2500);
+      contactForm.reset();
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* css/style.css - keep your dark aesthetic; add small upgrades */
+:root{ --accent:#00c6ff; --muted:#9aa5ad; }
+
+*{box-sizing:border-box}
+body{ font-family:'Poppins',sans-serif; background:linear-gradient(135deg,#0b1221 0%,#10202b 40%,#173843 100%); color:#e9eef1; margin:0;}
+
+/* navbar */
+.navbar-brand{ color:var(--accent); }
+
+/* product card */
+.product-card{ border-radius:12px; transition:transform .28s ease, box-shadow .28s ease; background:rgba(255,255,255,0.02); }
+.product-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,0.45); border-color: rgba(0,198,255,0.06); }
+.image-container{ height:170px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); }
+
+/* lazy placeholder */
+img.lazy-img{ opacity:0; transform:translateY(6px); transition:opacity .28s, transform .28s; }
+img:not(.lazy-img){ opacity:1; transform:none; }
+
+/* toast */
+.toast-container{ z-index:99999; }
+.toast{ background:rgba(20,20,20,0.95); border-radius:10px; }
+
+/* cart badge */
+#cart-badge{ font-size:.72rem; padding:.28rem .45rem; }
+
+/* small screens */
+@media(max-width:768px){
+  .image-container{ height:140px; }
+  .product-card{ margin-bottom:10px; }
+  .navbar .ms-auto{ gap:.25rem; }
+}
