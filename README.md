@@ -7,7 +7,7 @@
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-purple)
 ![AOS](https://img.shields.io/badge/AOS-Animations-lightgrey)
 
-**Live Demo:** [https://shopstake-xyz.netlify.app](https://shopstake-xyz.netlify.app)  
+**Live Demo:** https://shopstake.netlify.app/)  
 
 ---
 
